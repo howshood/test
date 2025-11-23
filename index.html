@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revelator | Shared Releases</title>
+    <title>Revelator | Performing Rights Organization</title>
     <link rel="icon" type="image/x-icon" href="https://revelator.com/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +33,8 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     background: var(--bg-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -137,8 +139,21 @@ body {
     min-height: calc(100vh - 72px);
     display: flex;
     align-items: center;
-    padding: 80px 24px;
-    background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+    padding: 120px 24px;
+    background: #000000;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .hero-content {
@@ -152,36 +167,39 @@ body {
 }
 
 .hero-content-full {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     width: 100%;
-    text-align: center;
+    text-align: left;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-title {
-    font-size: 72px;
-    font-weight: 900;
+    font-size: 64px;
+    font-weight: 800;
     line-height: 1.1;
-    letter-spacing: -2px;
+    letter-spacing: -1.5px;
     color: var(--text-primary);
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+    font-family: 'Inter', sans-serif;
 }
 
 .hero-subtitle {
     font-size: 20px;
     color: var(--text-secondary);
     margin-bottom: 40px;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .hero-subtitle-large {
-    font-size: 22px;
-    color: var(--text-secondary);
-    margin-bottom: 32px;
-    line-height: 1.8;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 18px;
+    color: #b8b8b8;
+    margin-bottom: 24px;
+    line-height: 1.85;
+    max-width: 100%;
+    font-weight: 400;
+    letter-spacing: 0.01em;
 }
 
 .text-link {
@@ -298,25 +316,26 @@ body {
 
 /* Showcase Section */
 .showcase {
-    padding: 120px 24px;
-    background: var(--bg-white);
+    padding: 140px 24px;
+    background: #0a0a0a;
+    border-top: 1px solid var(--border-color);
 }
 
 .showcase-content {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 100px;
     align-items: center;
 }
 
 .section-title {
-    font-size: 48px;
-    font-weight: 800;
+    font-size: 42px;
+    font-weight: 700;
     line-height: 1.2;
     letter-spacing: -1px;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     color: var(--text-primary);
 }
 
@@ -326,44 +345,55 @@ body {
 }
 
 .section-description {
-    font-size: 18px;
-    color: var(--text-secondary);
-    margin-bottom: 32px;
-    line-height: 1.7;
+    font-size: 17px;
+    color: #b8b8b8;
+    margin-bottom: 40px;
+    line-height: 1.8;
+    font-weight: 400;
+    letter-spacing: 0.01em;
 }
 
 .feature-list {
     list-style: none;
 }
 
+.feature-list {
+    margin-top: 8px;
+}
+
 .feature-list li {
-    font-size: 18px;
-    padding: 12px 0;
-    padding-left: 32px;
+    font-size: 17px;
+    padding: 14px 0;
+    padding-left: 36px;
     position: relative;
-    color: var(--text-primary);
+    color: #e0e0e0;
+    line-height: 1.6;
+    font-weight: 400;
 }
 
 .feature-list li::before {
-    content: '✓';
+    content: '→';
     position: absolute;
     left: 0;
     color: var(--accent-color);
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    top: 14px;
 }
 
 .showcase-visual {
     width: 100%;
-    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.showcase-image-placeholder {
+.showcase-image {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.05);
+    height: auto;
+    max-width: 100%;
+    border-radius: 8px;
+    display: block;
 }
 
 /* Stats Section */
@@ -750,19 +780,45 @@ body {
         <section class="hero">
             <div class="hero-content-full">
                 <h1 class="hero-title">
-                    Shared Releases
+                    Performing Rights Organization
                 </h1>
                 <p class="hero-subtitle-large">
-                    This platform enables Revelator users to share and verify their release information with authorized parties. 
-                    When submitting copyright claims or DMCA takedown requests, you can reference this page as an authorized URL 
-                    to provide streaming platforms and rights management services with verified release details.
+                    Revelator serves as a comprehensive Performing Rights Organization (PRO) platform, managing and protecting 
+                    the rights of music creators, publishers, and rights holders worldwide. We collect and distribute performance 
+                    royalties, administer licensing agreements, and ensure proper compensation for the use of musical works across 
+                    all platforms and territories.
                 </p>
                 <p class="hero-subtitle-large">
-                    Streaming platforms such as Spotify can access this page to verify release ownership and metadata when processing 
-                    copyright claims submitted via <a href="mailto:dmca@revelator.dev" class="text-link">dmca@revelator.dev</a>. 
-                    This serves as an official, verifiable source for release information, ensuring transparency and compliance 
-                    with intellectual property regulations.
+                    Our platform provides transparent royalty collection and distribution services for the music industry. We work 
+                    directly with broadcasters, streaming services, venues, and digital platforms to license music and ensure 
+                    creators receive fair compensation for their intellectual property. For licensing inquiries or copyright 
+                    verification, please contact us at <a href="mailto:inquiries@revelator.dev" class="text-link">inquiries@revelator.dev</a>.
                 </p>
+            </div>
+        </section>
+
+        <section class="showcase">
+            <div class="container">
+                <div class="showcase-content">
+                    <div class="showcase-text">
+                        <h2 class="section-title">Professional Rights Management</h2>
+                        <p class="section-description">
+                            As a trusted Performing Rights Organization, Revelator provides essential services for the music industry, 
+                            connecting creators with the revenue streams they deserve. Our platform ensures that every performance, 
+                            broadcast, and digital stream generates proper compensation for rights holders.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Global royalty collection and distribution</li>
+                            <li>Public performance licensing administration</li>
+                            <li>Real-time usage tracking and reporting</li>
+                            <li>Copyright registration and protection</li>
+                            <li>Direct relationships with major platforms and broadcasters</li>
+                        </ul>
+                    </div>
+                    <div class="showcase-visual">
+                        <img src="https://www.datocms-assets.com/116987/1727964430-trust-partners.png?auto=format" alt="Preferred Providers" class="showcase-image">
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -794,6 +850,13 @@ body {
                             </svg>
                             <span>legal@revelator.dev</span>
                         </a>
+                        <a href="mailto:inquiries@revelator.dev" class="footer-email">
+                            <svg class="email-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span>inquiries@revelator.dev</span>
+                        </a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -812,7 +875,7 @@ body {
                 </div>
             </div>
             <div class="footer-more">
-                <p class="footer-copyright">&copy; 2025 Revelator, Ltd</p>
+                <p class="footer-copyright">&copy; <span id="current-year"></span> Revelator, Ltd</p>
                 <div class="footer-social">
                     <a href="https://twitter.com/GetRevelator" class="social-link" rel="noopener noreferrer" target="_blank" aria-label="X (Twitter)">
                         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -843,8 +906,8 @@ body {
             </div>
         </div>
     </footer>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
-
-
-
