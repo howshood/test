@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sönen Sigaralar - Ati242 | Presave</title>
+    <link rel="icon" type="image/x-icon" href="https://revelator.com/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+    --accent-color: #1db954;
+    --text-primary: #ffffff;
+    --text-secondary: #b8b8b8;
+    --bg-dark: #000000;
+    --bg-light: #0a0a0a;
+    --border-color: #333333;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background: var(--bg-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+}
+
+/* Header */
+.header {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+    opacity: 0.8;
+}
+
+.logo-img {
+    height: 28px;
+    width: auto;
+    display: block;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 80px 0;
+    background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+    position: relative;
+}
+
+.main-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.presave-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.album-art {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto 48px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.album-art:hover {
+    transform: scale(1.02);
+}
+
+.album-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.track-info {
+    margin-bottom: 56px;
+}
+
+.track-title {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, #ffffff 0%, #b8b8b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.artists {
+    font-size: 26px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 32px;
+    letter-spacing: 0.5px;
+}
+
+.release-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+
+.release-label {
+    color: #888888;
+    font-weight: 500;
+}
+
+.release-value {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.composers {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.composers-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.composers-names {
+    font-size: 14px;
+    color: #a0a0a0;
+    line-height: 1.7;
+}
+
+/* Streaming Links */
+.streaming-section {
+    margin-top: 60px;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+}
+
+.platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.platform-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 28px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.platform-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.platform-link:hover::before {
+    left: 100%;
+}
+
+.platform-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(29, 185, 84, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(29, 185, 84, 0.25);
+}
+
+.platform-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.platform-name {
+    flex: 1;
+    text-align: left;
+}
+
+/* Footer */
+.footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 80px;
+    text-align: center;
+}
+
+.footer-text {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.footer-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--accent-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .track-title {
+        font-size: 42px;
+    }
+
+    .artists {
+        font-size: 22px;
+    }
+
+    .album-art {
+        width: 320px;
+        height: 320px;
+    }
+
+    .platforms-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .presave-container {
+        padding: 0 16px;
+    }
+
+    .main-content {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .track-title {
+        font-size: 32px;
+    }
+
+    .artists {
+        font-size: 20px;
+    }
+
+    .album-art {
+        width: 280px;
+        height: 280px;
+    }
+
+    .release-date {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="https://revelator.com" class="logo-link" target="_blank">
+                    <img alt="Revelator Pro" src="data:image/svg+xml,%3csvg%20width='126'%20height='48'%20viewBox='0%200%20126%2048'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_4517_7091)'%3e%3cpath%20d='M0%2014.4194H6.45828C10.9148%2014.4194%2014.0382%2016.2357%2014.0382%2020.3794V20.4938C14.0382%2023.6733%2012.0516%2025.2954%209.52564%2025.9425L15.2289%2034.7153H11.1413L5.8241%2026.512H3.42328V34.7089H0V14.4194ZM6.45828%2023.8156C8.98637%2023.8156%2010.3194%2022.7371%2010.3194%2020.58V20.4679C10.3194%2018.1404%208.87205%2017.3444%206.45828%2017.3444H3.42328V23.8156H6.45828Z'%20fill='white'/%3e%3cpath%20d='M15.5482%2027.4523V27.2366C15.5482%2022.6377%2018.6975%2019.5725%2022.9276%2019.5725C26.6183%2019.5725%2029.9381%2021.7576%2029.9381%2027.0662V28.0584H19.0686C19.1807%2030.8626%2020.6001%2032.4589%2023.1541%2032.4589C25.2249%2032.4589%2026.3055%2031.6349%2026.5601%2030.1875H29.882C29.3988%2033.2958%2026.8729%2035.0021%2023.0807%2035.0021C18.6975%2035.0021%2015.5482%2032.131%2015.5482%2027.4523ZM26.532%2025.7439C26.3616%2023.1899%2025.0566%2022.0553%2022.9276%2022.0553C20.8546%2022.0553%2019.4655%2023.4445%2019.1225%2025.7439H26.532Z'%20fill='white'/%3e%3cpath%20d='M30.3414%2019.8682H34.03L37.9128%2031.195L41.7459%2019.8682H45.1239L39.7592%2034.7153H35.7622L30.3414%2019.8682Z'%20fill='white'/%3e%3cpath%20d='M45.2727%2027.4523V27.2366C45.2727%2022.6377%2048.4263%2019.5725%2052.6542%2019.5725C56.345%2019.5725%2059.6647%2021.7576%2059.6647%2027.0662V28.0584H48.793C48.9074%2030.8626%2050.3267%2032.4589%2052.8915%2032.4589C54.9644%2032.4589%2056.043%2031.6349%2056.2975%2030.1875H59.6194C59.1254%2033.2958%2056.5995%2035.0021%2052.7944%2035.0021C48.4263%2035.0021%2045.2727%2032.131%2045.2727%2027.4523ZM56.2608%2025.7482C56.084%2023.1899%2054.7897%2022.0596%2052.6542%2022.0596C50.5813%2022.0596%2049.19%2023.4488%2048.8513%2025.7482H56.2608Z'%20fill='white'/%3e%3cpath%20d='M61.9706%2013H65.4025V34.7153H61.9706V13Z'%20fill='white'/%3e%3cpath%20d='M67.6459%2030.5997C67.6459%2027.1354%2070.9958%2025.8865%2075.2539%2025.8865H77.1003V25.1207C77.1003%2023.134%2076.4187%2022.1396%2074.4018%2022.1396C72.6136%2022.1396%2071.7335%2023.0025%2071.5631%2024.4671H68.2434C68.526%2021.0158%2071.2784%2019.5576%2074.6024%2019.5576C77.9265%2019.5576%2080.5344%2020.9187%2080.5344%2024.9783V34.7154H77.1543V32.8991C76.19%2034.1761%2074.8872%2035.0001%2072.6136%2035.0001C69.8892%2035.0023%2067.6459%2033.6929%2067.6459%2030.5997ZM77.1003%2029.5211V28.0435H75.338C72.7279%2028.0435%2071.054%2028.6411%2071.054%2030.4573C71.054%2031.7063%2071.7335%2032.5281%2073.4376%2032.5281C75.5386%2032.5281%2077.1003%2031.4215%2077.1003%2029.5211Z'%20fill='white'/%3e%3cpath%20d='M84.1992%2030.5694V22.4523H82.2125V19.8638H84.1992V16.6045H87.6333V19.8681H90.8991V22.4566H87.6333V30.2566C87.6333%2031.5509%2088.2588%2032.1592%2089.3374%2032.1592C89.9089%2032.1787%2090.4783%2032.0818%2091.0113%2031.8744V34.5988C90.2638%2034.8604%2089.4754%2034.9854%2088.6838%2034.9677C85.7329%2034.9698%2084.1992%2033.3801%2084.1992%2030.5694Z'%20fill='white'/%3e%3cpath%20d='M92.2623%2027.4523V27.2366C92.2623%2022.6377%2095.526%2019.5725%2099.8984%2019.5725C104.271%2019.5725%20107.506%2022.6097%20107.506%2027.1503V27.366C107.506%2031.9822%20104.241%2035.0021%2099.8725%2035.0021C95.5044%2035.0021%2092.2623%2031.9606%2092.2623%2027.4523ZM103.986%2027.3962V27.1935C103.986%2024.1282%20102.455%2022.2538%2099.8984%2022.2538C97.3422%2022.2538%2095.774%2024.0981%2095.774%2027.1633V27.3919C95.774%2030.4291%2097.284%2032.3294%2099.8897%2032.3294C102.461%2032.3294%20103.986%2030.4291%20103.986%2027.3919V27.3962Z'%20fill='white'/%3e%3cpath%20d='M109.754%2019.8681H113.188V22.6508C114.124%2020.7763%20115.514%2019.6697%20118.014%2019.6309V22.8492C114.994%2022.8773%20113.188%2023.8436%20113.188%2026.993V34.7153H109.754V19.8681Z'%20fill='white'/%3e%3cpath%20d='M121.178%2019.9846H120.417V19.6416H122.358V19.9846H121.605V22.1417H121.174L121.178%2019.9846ZM122.807%2019.6416H123.404L124.103%2021.3975L124.787%2019.6416H125.393V22.1417H124.961V20.2003L124.163%2022.1417H124.015L123.208%2020.2003V22.1417H122.811L122.807%2019.6416Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_4517_7091'%3e%3crect%20width='125.393'%20height='22'%20fill='white'%20transform='translate(0%2013)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e" class="logo-img">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="presave-container">
+                <div class="album-art">
+                    <img src="https://i.scdn.co/image/ab67616d0000b27379dbe6c33d218de4aa59223b" alt="Sönen Sigaralar - Ati242">
+                </div>
+
+                <div class="track-info">
+                    <h1 class="track-title">Sönen Sigaralar</h1>
+                    <p class="artists">Ati242</p>
+                    <div class="release-date">
+                        <span class="release-label">Release Date:</span>
+                        <span class="release-value">October 10, 2024</span>
+                    </div>
+                    <div class="composers">
+                        <div class="composers-label">Composers:</div>
+                        <div class="composers-names">Atilla Serin</div>
+                    </div>
+                </div>
+
+                <div class="streaming-section">
+                    <h2 class="section-title">Stream Now</h2>
+                    <div class="platforms-grid">
+                        <a href="https://music.apple.com/album/s%C3%B6nen-sigaralar/1771701272" class="platform-link" target="_blank" rel="noopener noreferrer">
+                            <span class="platform-name">Apple Music</span>
+                        </a>
+                        <a href="https://www.deezer.com/track/3025652301" class="platform-link" target="_blank" rel="noopener noreferrer">
+                            <span class="platform-name">Deezer</span>
+                        </a>
+                        <a href="https://www.shazam.com/song/1771701687" class="platform-link" target="_blank" rel="noopener noreferrer">
+                            <span class="platform-name">Shazam</span>
+                        </a>
+                        <a href="https://soundcloud.com/ati242-music/soenen-sigaralar" class="platform-link" target="_blank" rel="noopener noreferrer">
+                            <span class="platform-name">SoundCloud</span>
+                        </a>
+                        <a href="https://open.spotify.com/track/0QuKutgaaa0Q1WUZEnrZ93" class="platform-link" target="_blank" rel="noopener noreferrer">
+                            <span class="platform-name">Spotify</span>
+                        </a>
+                        <a href="https://tidal.com/album/390696153/track/390696168" class="platform-link" target="_blank" rel="noopener noreferrer">
+                            <span class="platform-name">Tidal</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=j_hbewgd_d4" class="platform-link" target="_blank" rel="noopener noreferrer">
+                            <span class="platform-name">YouTube</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                &copy; <span id="current-year"></span> <a href="https://revelator.com" class="footer-link" target="_blank">Revelator</a>. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+
